@@ -1,0 +1,16 @@
+# Markdown 格式转换工具依赖包
+
+# GUI 框架（Python 内置，无需安装）
+# tkinter
+
+# PDF 处理
+PyPDF2>=3.0.0
+
+# Word 文档处理
+python-docx>=1.1.0
+
+# 拖放功能支持
+tkinterdnd2>=0.3.0
+
+# 打包工具（可选）
+pyinstaller>=6.0.0
