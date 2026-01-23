@@ -1,35 +1,25 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 """
-Markdown 格式转换工具 - 程序入口
-Author: Your Name
-Date: 2026-01-22
-Description: 程序的唯一启动点，初始化并启动 GUI 界面
+Convert2MD - PDF to Markdown Converter GUI Application
+This is the main entry point for the application.
 """
 
 import sys
 import os
 
-# 添加 function 目录到路径，以便导入模块
-sys.path.append(os.path.join(os.path.dirname(__file__), 'function'))
-
-from gui.main_window import MainWindow
-import tkinter as tk
-
+# Add the project root to the Python path to allow imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 def main():
-    """
-    程序主入口函数
-    """
+    """Main entry point for the application."""
     try:
-        # 初始化主窗口（内部会处理 TkinterDnD 的兼容性）
-        app = MainWindow()
-
-        # 启动 GUI 事件循环
-        app.root.mainloop()
-
+        from gui.main_gui import main as gui_main
+        gui_main()
+    except ImportError as e:
+        print(f"Error importing GUI module: {e}")
+        sys.exit(1)
     except Exception as e:
-        print(f"程序启动失败: {e}")
+        print(f"An error occurred while running the application: {e}")
         sys.exit(1)
 
 
